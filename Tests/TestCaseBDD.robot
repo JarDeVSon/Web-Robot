@@ -1,9 +1,11 @@
 *** Settings ***
 Documentation    BDD with Page Objects in RobotFramework by: Jardeson Santos
 
+Resource        ../Resources/PageObject/KeywordDefinitionFiles/BDDpt-br.robot
 Resource        ../Resources/PageObject/KeywordDefinitionFiles/RobotizandoPage.robot
 Resource        ../Resources/PageObject/KeywordDefinitionFiles/Common.robot
 Variables       ../Resources/PageObject/Locators/Locators.py
+
 Test Setup      Abrir Navegador
 Test Teardown   Fechar Navegador
 
