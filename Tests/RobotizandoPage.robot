@@ -1,10 +1,7 @@
 *** Settings ***
 
 Library     SeleniumLibrary
-
 Variables   Locators.py
-Resource    BDDpt-br.robot
-
 
 *** Keywords ***
 ############### DADO  ######################
