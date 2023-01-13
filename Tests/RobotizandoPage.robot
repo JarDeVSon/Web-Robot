@@ -1,6 +1,6 @@
 *** Settings ***
 Library     Selenium2Library
-Variables   ../Locators/Locators.py
+Variables   Locators.py
 Resource    BDDpt-br.robot
 
 
