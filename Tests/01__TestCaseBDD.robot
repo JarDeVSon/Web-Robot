@@ -12,7 +12,7 @@ Test Teardown   Fechar Navegador
 *** Test Cases ***
 
 Cenário 01: Pesquisar postagem Season Premiere
-    [Documentation]     ~~ Breve descricao do teste! Pesquisarr postagem ~~
+    [Documentation]     ~~ Breve descricao do teste! Pesquisar postagem ~~
     [Tags]  Smoke
 
     Dado Que esteja na tela HOME do blog robotizando testes
