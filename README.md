@@ -1,6 +1,6 @@
 # Web-Robot
 
-Automação Web com RobotFramework with Selenium2Library
+Automação Web com RobotFramework with SeleniumLibrary
 
 Pre-requisites:
 1) Python
@@ -9,4 +9,4 @@ Pre-requisites:
 Install Following Libraries using through command Line:
 
 1) pip install robotframework
-2) pip install robotframework-selenium2library
+2) pip install robotframework-seleniumlibrary
