@@ -1,12 +1,12 @@
 *** Keywords ***
 Dado ${keyword}
-    Run keyword   ${keyword}
+    Run keyword And Continue On Failure  ${keyword}
 
 Quando ${keyword}
-    Run keyword   ${keyword}
+    Run Keyword And Continue On Failure  ${keyword}
 
 Então ${keyword}
-    Run keyword   ${keyword}
+    Run Keyword And Continue On Failure  ${keyword}
 
 E ${keyword}
-    Run keyword   ${keyword}
+    Run keyword And Continue On Failure  ${keyword}

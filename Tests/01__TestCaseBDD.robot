@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    BDD with Page Objects in RobotFramework by: Jardeson Santos
+Documentation   BDD with Page Objects in RobotFramework by Jardeson Santos
 
 Resource        BDDpt-br.robot
 Resource        RobotizandoPage.robot
