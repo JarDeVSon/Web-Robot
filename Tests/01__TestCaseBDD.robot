@@ -9,6 +9,7 @@ Variables       Locators.py
 Test Setup      Abrir Navegador
 Test Teardown   Fechar Navegador
 
+
 *** Test Cases ***
 
 Cenário 01: Pesquisar postagem Season Premiere
