@@ -5,11 +5,12 @@ Library    Screenshot
 
 *** Variable ***
 ${BROWSER}              chrome
-${URL}                  https://robotizandotestes.blogspot.com.br/
+${ENVIRONMENT}          hom
+&{URL}                  dev=urlDEV  hom=https://robotizandotestes.blogspot.com.br/
 
 *** Keywords ***
 Abrir Navegador
-    Open Browser  ${URL}  ${BROWSER}  timeout=10
+    Open Browser  ${URL.${ENVIRONMENT}}  ${BROWSER}  timeout=10
     Maximize Browser Window
 
 Fechar Navegador
