@@ -9,14 +9,15 @@ jobs:
     test:
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/checkout@v2
-        - name: Run Tests
-          uses: joonvena/robotframework-docker-action@v1.0
+        - uses: actions/checkout@v4
+        - name: Robot Framework
+          uses: frafaelptu/robotframework-docker-action-run-tests@v2.0.0
           with:
             browser: chrome
             robot_tests_dir: Tests
+
         - name: Upload Test Report
-          uses: actions/upload-artifact@v1
+          uses: actions/upload-artifact@v4
           if: always()
           with:
             name: reports
@@ -28,7 +29,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Download reports
-          uses: actions/download-artifact@v1
+          uses: actions/download-artifact@v4
           with:
             name: reports
         - name: Send report to commit
