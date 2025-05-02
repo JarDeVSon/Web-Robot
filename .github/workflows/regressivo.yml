@@ -11,7 +11,7 @@ jobs:
         steps:
         - uses: actions/checkout@v2
         - name: Run Tests
-          uses: joonvena/robotframework-docker-action@v1.1
+          uses: joonvena/robotframework-docker-action@v1.0
           with:
             browser: chrome
             robot_tests_dir: Tests
