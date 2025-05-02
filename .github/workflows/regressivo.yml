@@ -16,7 +16,7 @@ jobs:
             browser: chrome
             robot_tests_dir: Tests
         - name: Upload Test Report
-          uses: actions/upload-artifact@v1
+          uses: actions/upload-artifact@v3
           if: always()
           with:
             name: reports
@@ -28,10 +28,13 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Download reports
-          uses: actions/download-artifact@v1
+          uses: actions/download-artifact@v4
           with:
             name: reports
         - name: Send report to commit
           uses: joonvena/robotframework-reporter-action@v2.5
           with:
             gh_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+        - name: GitHub Pages v3
+          uses: peaceiris/actions-github-pages@v3.1.12            
