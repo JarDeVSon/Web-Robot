@@ -3,7 +3,7 @@
 Library    SeleniumLibrary
 Library    Screenshot
 
-*** Variable ***
+*** Variables ***
 ${BROWSER}              chrome
 ${ENVIRONMENT}          hom
 &{URL}                  dev=urlDEV  hom=https://robotizandotestes.blogspot.com.br/
