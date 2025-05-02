@@ -16,7 +16,7 @@ jobs:
             browser: chrome
             robot_tests_dir: Tests
         - name: Upload Test Report
-          uses: actions/upload-artifact@v1
+          uses: actions/upload-artifact@v3
           if: always()
           with:
             name: reports
@@ -28,7 +28,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Download reports
-          uses: actions/download-artifact@v1
+          uses: actions/download-artifact@v3
           with:
             name: reports
         - name: Send report to commit
