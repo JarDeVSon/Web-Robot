@@ -15,6 +15,7 @@ jobs:
           with:
             browser: chrome
             robot_tests_dir: Tests
+            robot_reports_dir: reports
 
         - name: Upload Test Report
           uses: actions/upload-artifact@v4
@@ -35,6 +36,7 @@ jobs:
         - name: Send report to commit
           uses: joonvena/robotframework-reporter-action@v2
           with:
+            report_path: reports
             gh_access_token: ${{ secrets.GITHUB_TOKEN }}
 
         - name: GitHub Pages v3
