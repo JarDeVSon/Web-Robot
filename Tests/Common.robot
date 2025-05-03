@@ -10,6 +10,7 @@ ${ENVIRONMENT}          hom
 
 *** Keywords ***
 Abrir Navegador
+
     Open Browser  ${URL.${ENVIRONMENT}}  ${BROWSER}  timeout=10
     Maximize Browser Window
 

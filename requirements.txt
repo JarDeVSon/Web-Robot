@@ -7,3 +7,4 @@ robotframework-pythonlibcore
 robotframework-requests
 robotframework-selenium2library
 robotframework-seleniumlibrary
+webdriver-manager
