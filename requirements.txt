@@ -1,10 +1,17 @@
+<<<<<<< HEAD
 robotframework==6.0
 robotframework-appiumlibrary
 robotframework-faker
+=======
+robotframework
+>>>>>>> 38a6ba3 (BDD NATIVO)
 robotframework-jsonlibrary
 robotframework-jsonvalidator
-robotframework-pythonlibcore
 robotframework-requests
+<<<<<<< HEAD
 robotframework-selenium2library
 robotframework-seleniumlibrary
 webdriver-manager
+=======
+robotframework-seleniumlibrary
+>>>>>>> 38a6ba3 (BDD NATIVO)

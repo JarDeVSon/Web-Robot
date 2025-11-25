@@ -1,6 +1,6 @@
 #  Web Automation Robot Framework
 
-Sample project to demonstrate Web Automation tests written with [Robot Framework](https://robotframework.org/#resources) with [SeleniumLibrary](https://github.com/robotframework/SeleniumLibrary/) running on GitHub Actions.
+Sample project to demonstrate Web e API Automation tests written with [Robot Framework](https://robotframework.org/#resources) with Selenium Library e Requests Library running on GitHub Actions.
 
 ## Pre-requirements
 
@@ -17,13 +17,33 @@ Install the Following Libraries using the command Line:
 
 - `python -m pip install -r requirements.txt`
 
+## Project Structure - Using Page Objects Pattern
+
+tests/
+├── resources/
+│   ├── loginBack.resource        # Keywords for backend tests (login)
+│   └── loginPage.resource        # Keywords for frontend tests (login)
+├── tests/
+│   ├── login_back.robot          # Test cases for backend (login)
+│   └── login_front.robot         # Test cases for frontend (login)
+├── .gitignore                  # File to ignore files in Git
+├── common.resource             # Common variables and configurations
+├── README.md                   # This file
+└── requirements.txt            # List of project dependencies
 
 ## Running the tests
 
-In this project, you can run tests via CLI in both environments with the flag `-v` generate the reports with the flag `-d` and pass the path to suite tests `Tests/01__TestCaseBDD.robot`:
+In this project, you can run tests via CLI and generate the reports with the flag `-d` and pass the path to suite tests `tests/`:
 
-- to run DEV `python -m robot -d reports -v ENVIRONMENT:dev Tests/01__TestCaseBDD.robot`
-- to run HOM `python -m robot -d reports -v ENVIRONMENT:hom Tests/01__TestCaseBDD.robot`
+To run Frontend tests:
+
+- `python -m robot -d reports tests/login_front.robot`
+
+To run Backend tests:
+
+- `python -m robot -d reports tests/login_back.robot`
+
+To run All the tests:
+
+- `python -m robot -d reports tests/`
 ___
-
-Made with ❤️ by [Jardeson Santos ](https://github.com/JarDeVSon)[Meu Linkedin](https://www.linkedin.com/in/jardeson-santosqa).
