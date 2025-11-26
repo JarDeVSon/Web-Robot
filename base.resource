@@ -11,9 +11,9 @@ Library    Process
 
 
 ***Variables***
-${BROWSER}              headlesschrome
-${ENVIRONMENT}          hom
-&{URL_LOGIN}                  dev=urlDEV  hom=https://front.serverest.dev/login
+${BROWSER}    headlesschrome
+${ENVIRONMENT}  hom
+&{URL_LOGIN}    dev=urlDEV  hom=https://front.serverest.dev/login
 ${USERNAME}    testefront@bol.com 
 ${PASSWORD}    teste123
 ${URL_BASE}    https://serverest.dev/#/

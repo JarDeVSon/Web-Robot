@@ -27,7 +27,7 @@ tests/
 │   ├── login_back.robot          # Test cases for backend (login)
 │   └── login_front.robot         # Test cases for frontend (login)
 ├── .gitignore                  # File to ignore files in Git
-├── common.resource             # Common variables and configurations
+├── base.resource             # base global variables and configurations
 ├── README.md                   # This file
 └── requirements.txt            # List of project dependencies
 
