@@ -2,6 +2,11 @@
 
 Resource    ../base.resource
 
+*** Variables ***
+&{login_page_locators}=
+...    email_field=css:#email
+...    password_field=css:#password
+...    login_button=xpath://button[@data-testid="entrar"]
 
 ***Keywords***
 
@@ -11,11 +16,11 @@ Acesso a pagina de login
 
 Preencho formulario de login
     [Arguments]    ${username}    ${password}
-    Input Text    css:#email    ${username}
-    Input Text    css:#password    ${password}
+    Input Text    ${login_page_locators.email_field}  ${username}
+    Input Text    ${login_page_locators.password_field}    ${password}
 
 Clico no botao login
-    Click Element    css:button[data-testid='entrar']
+    Click Element    ${login_page_locators.login_button}
 
 Valido que estou logado
     [Arguments]    ${message}
