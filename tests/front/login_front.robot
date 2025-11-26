@@ -3,10 +3,8 @@ Language: Brazilian Portuguese
 ***Settings***
 
 Resource    ../resources/front/loginPage.resource
-
 Test Setup    Acesso a pagina de login
 Test Teardown    Fechar Navegador
-
 
 ***Test Cases***
 

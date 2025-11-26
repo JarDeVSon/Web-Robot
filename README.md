@@ -26,10 +26,10 @@ tests/
 ├── tests/
 │   ├── login_back.robot          # Test cases for backend (login)
 │   └── login_front.robot         # Test cases for frontend (login)
-├── .gitignore                  # File to ignore files in Git
-├── base.resource             # base global variables and configurations
-├── README.md                   # This file
-└── requirements.txt            # List of project dependencies
+├── .gitignore                    # File to ignore files in Git
+├── base.resource                 # base global variables and configurations
+├── README.md                     # This file
+└── requirements.txt              # List of project dependencies
 
 ## Running the tests
 
@@ -37,11 +37,18 @@ In this project, you can run tests via CLI and generate the reports with the fla
 
 To run Frontend tests:
 
-- `python -m robot -d reports tests/login_front.robot`
+- `python -m robot -d reports tests/front/login_front.robot`
 
 To run Backend tests:
 
-- `python -m robot -d reports tests/login_back.robot`
+- `python -m robot -d reports tests/back/login_back.robot`
+
+To run using Tags between back and front: (login, valido, invalido)
+
+- `python -m robot -d reports -i login tests/`
+- `python -m robot -d reports -i valido tests/`
+- `python -m robot -d reports -i invalido tests/`
+
 
 To run All the tests:
 
