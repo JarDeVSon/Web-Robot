@@ -1,6 +1,6 @@
 ***Settings***
 
-Resource    ../base.resource
+Resource    ../tests/base.resource
 
 ***Keywords***
 
