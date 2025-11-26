@@ -10,27 +10,19 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@v4
-<<<<<<< HEAD
-        - name: Execute tests
-          uses: joonvena/robotframework-docker-action@v1.0
-          with:
-            browser: chrome
-            robot_tests_dir: Tests
-            robot_reports_dir: reports
-
-=======
         - name: Run Tests
           uses: joonvena/robotframework-docker-action@v1.0
           with:
             browser: chrome
             robot_tests_dir: tests
->>>>>>> 38a6ba3 (BDD NATIVO)
+            
+
         - name: Upload Test Report
           uses: actions/upload-artifact@v4
           if: always()
           with:
-            name: reports
-            path: reports
+            name: results
+            path: results
 
     generate_report:
       if: always()
@@ -40,16 +32,12 @@ jobs:
         - name: Download reports
           uses: actions/download-artifact@v4
           with:
-            name: reports
+            name: results
         - name: Send report to commit
-<<<<<<< HEAD
-          uses: joonvena/robotframework-reporter-action@v2.3
-=======
           uses: joonvena/robotframework-reporter-action@v2.5
->>>>>>> 38a6ba3 (BDD NATIVO)
           with:
-            report_path: reports
+            report_path: results
             gh_access_token: ${{ secrets.GITHUB_TOKEN }}
 
         - name: GitHub Pages v3
-          uses: peaceiris/actions-github-pages@v3.1.12            
+          uses: peaceiris/actions-github-pages@v3.1.12

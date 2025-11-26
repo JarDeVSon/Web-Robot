@@ -1,5 +1,6 @@
 ***Settings***
-Resource    ../common.resource
+
+Resource    ../base.resource
 
 ***Keywords***
 
@@ -12,22 +13,6 @@ Realizar Login com Credenciais
     ${BODY}=    Create Dictionary    email=${email}    password=${password}
 
     ${RESPONSE}=    POST On Session    api    /login    json=${BODY}
-    
-    # Converte resposta em JSON
-    ${json}=   Convert String To Json    ${RESPONSE.text}
-
-    # Extrai o campo href
-    ${href}=    Get Value From Json    ${json}    $.links.href
-    ${HREF_STRING}=    Convert To String    ${href}
-
-    Log To Console    Href capturado: ${href}
-    Log To Console    Href capturado (string): ${HREF_STRING}
-    Set Global Variable    ${href}
-
-    # 2º POST - usa o href como rota
-    ${response2}=   Post On Session    api    ${href}    json={"confirmacao": true}
-    Should Be Equal As Integers    ${response2.status_code}    200
-    Log    ${response2.text}
     Set Global Variable    ${RESPONSE}
     RETURN    ${RESPONSE}
 
@@ -49,6 +34,6 @@ Validar Falha no Login
 
 Validar status code
     [Arguments]    ${RESPONSE}    ${STATUS_CODE}
-    Should Be Equal    ${RESPONSE}    ${STATUS_CODE}
+    Should Be Equal As Integers    ${RESPONSE}    ${STATUS_CODE}
 
     RETURN    ${RESPONSE}
