@@ -1,7 +1,6 @@
 ***Settings***
 
-Resource    base.resource
-Resource    ../resources/loginBack.resource
+Resource    ../resources/back/loginBack.resource
 
 Test Setup    Inicializar Sessão API
 
@@ -18,7 +17,7 @@ Cenário 1: Login com Credenciais Válidas
 Cenário 2: Login com Senha Inválida
     [Tags]    login    invalido
 
-    ${RESPONSE}    Realizar Login com Credenciais    invalido@qa.com.br    senhaerrada
+    ${RESPONSE}    Realizar Login com Credenciais    testefront@bol.com    senha_incorreta
     Validar status code  ${RESPONSE.status_code}    401
     Validar Falha no Login    ${RESPONSE.json()}    message    Email e/ou senha inválidos
 
