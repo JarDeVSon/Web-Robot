@@ -8,6 +8,7 @@ Resource    ../resources/loginPage.resource
 Test Setup    Dado Acesso a pagina de login
 Test Teardown    Fechar Navegador
 
+
 ***Test Cases***
 
 Caso de Teste 1: Login com credenciais válidas
