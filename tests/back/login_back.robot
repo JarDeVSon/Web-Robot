@@ -1,6 +1,6 @@
 ***Settings***
 
-Resource    ../resources/back/loginBack.resource
+Resource    ..//resources/back/loginBack.resource
 
 Test Setup    Inicializar Sessão API
 
