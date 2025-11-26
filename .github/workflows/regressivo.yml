@@ -21,7 +21,7 @@ jobs:
           uses: joonvena/robotframework-docker-action@v1.0  
           with:
             browser: 'chrome'
-            robot_tests_dir: '**/tests/'
+            robot_tests_dir: 'tests/'
             robot_reports_dir: 'reports'
             #robot_threads: 2
 
