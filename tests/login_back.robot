@@ -1,7 +1,6 @@
 ***Settings***
 
-Resource    ../../base.resource
-Resource    ../../resources/back/loginBack.resource
+Resource    ../base.resource
 Test Tags    back
 
 ***Test Cases***

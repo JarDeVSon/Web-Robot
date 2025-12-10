@@ -8,6 +8,9 @@ Library    JSONLibrary
 Library    DateTime
 Library    Process
 
+Resource   loginBack.resource
+Resource   loginPage.resource
+
 ***Variables***
 ${BROWSER}    headlesschrome
 ${ENVIRONMENT_FRONT}  hom

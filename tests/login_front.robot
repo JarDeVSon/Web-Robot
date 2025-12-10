@@ -2,8 +2,7 @@ Language: Brazilian Portuguese
 
 ***Settings***
 
-Resource    ../../base.resource
-Resource    ../../resources/front/loginPage.resource
+Resource    ../base.resource
 Test Tags    front
 
 ***Test Cases***

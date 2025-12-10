@@ -1,12 +1,15 @@
 ***Settings***
 
-Resource    ../../base.resource
+Resource    ../base.resource
 
 ***Keywords***
 
 Inicializar Sessão API
     &{headers}=    Create Dictionary    Content-Type=application/json
     Create Session    api    ${URL_BACKEND.${ENVIRONMENT_BACK}}    headers=${headers}    verify=False    disable_warnings=True    max_retries=3
+
+Finalizar Sessão API
+    Delete All Sessions
 
 Realizar Login com Credenciais
     [Arguments]    ${email}    ${password}
