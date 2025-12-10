@@ -1,5 +1,5 @@
 *** Settings ***
-Library    SeleniumLibrary  timeout=20    implicit_wait=20
+Library    SeleniumLibrary  timeout=20    implicit_wait=20    run_on_failure=Capture Page Screenshot    EMBED
 Library    Collections
 Library    String
 Library    OperatingSystem
