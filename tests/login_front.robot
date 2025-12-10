@@ -2,7 +2,14 @@ Language: Brazilian Portuguese
 
 ***Settings***
 
-Resource    ../base.resource
+Resource    ../loginPage.resource
+
+Test Setup    Run Keywords
+...   Acesso a pagina de login
+
+Test Teardown    Run Keywords
+...   Fechar Navegador
+
 Test Tags    front
 
 ***Test Cases***

@@ -1,5 +1,19 @@
 *** Settings ***
-Resource    base.resource
+Library    RequestsLibrary
+Library    Collections
+Library    String
+Library    OperatingSystem
+Library    JSONLibrary
+Library    DateTime
+Library    Process
+
+
+***Variables***
+
+${USERNAME}    testeback@bol.com 
+${PASSWORD}    teste123
+&{URL_BACKEND}     dev=urlDEV  hom=https://serverest.dev
+${ENVIRONMENT_BACK}  hom
 
 ***Keywords***
 

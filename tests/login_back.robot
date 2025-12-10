@@ -1,19 +1,26 @@
 ***Settings***
 
-Resource    ../base.resource
+Resource    ../loginBack.resource
 Test Tags    back
+
+Test Setup    Run Keywords
+...   Inicializar Sessão API
+
+Test Teardown    Run Keywords
+...   Finalizar Sessão API
+
 
 ***Test Cases***
 
 Cenário 1: Login com Credenciais Válidas
 
-    ${RESPONSE}    Realizar Login com Credenciais    testefront@bol.com  teste123
+    ${RESPONSE}    Realizar Login com Credenciais    ${USERNAME}  ${PASSWORD}
     Validar status code  ${RESPONSE.status_code}    200
     Validar Login Bem-Sucedido    ${RESPONSE.json()}    message    Login realizado com sucesso
 
 Cenário 2: Login com Senha Inválida
 
-    ${RESPONSE}    Realizar Login com Credenciais    testefront@bol.com    senha_incorreta
+    ${RESPONSE}    Realizar Login com Credenciais    testeback@bol.com    senha_incorreta
     Validar status code  ${RESPONSE.status_code}    401
     Validar Falha no Login    ${RESPONSE.json()}    message    Email e/ou senha inválidos
 
