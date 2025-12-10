@@ -1,6 +1,5 @@
-***Settings***
-
-Resource    ../base.resource
+*** Settings ***
+Resource    base.resource
 
 ***Keywords***
 

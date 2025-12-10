@@ -1,7 +1,5 @@
-***Settings***
-
-Resource    ../base.resource
-
+*** Settings ***
+Resource    base.resource
 
 *** Variables ***
 &{login_page_locators}=

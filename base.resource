@@ -8,8 +8,8 @@ Library    JSONLibrary
 Library    DateTime
 Library    Process
 
-Resource   loginBack.resource
-Resource   loginPage.resource
+Resource   ../loginBack.resource
+Resource   ../loginPage.resource
 
 ***Variables***
 ${BROWSER}    headlesschrome
