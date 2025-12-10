@@ -1,20 +1,7 @@
 ***Settings***
 
-Library    SeleniumLibrary  timeout=20    implicit_wait=20
-Library    RequestsLibrary
-Library    Collections
-Library    String
-Library    OperatingSystem
-Library    JSONLibrary
-Library    DateTime
-Library    Process
+Resource    ../base.resource
 
-***Variables***
-${BROWSER}    headlesschrome
-${ENVIRONMENT}  hom
-&{URL_LOGIN}    dev=urlDEV  hom=https://front.serverest.dev/login
-${USERNAME}    testefront@bol.com 
-${PASSWORD}    teste123
 
 *** Variables ***
 &{login_page_locators}=
@@ -25,7 +12,7 @@ ${PASSWORD}    teste123
 ***Keywords***
 
 Acesso a pagina de login
-    Open Browser  ${URL_LOGIN.${ENVIRONMENT}}  ${BROWSER}
+    Open Browser  ${URL_LOGIN.${ENVIRONMENT_FRONT}}  ${BROWSER}
     Maximize Browser Window
 
 Preencho formulario de login

@@ -10,13 +10,13 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@v5
+
         - uses: actions/setup-python@v6
           with:
             python-version: '3.13'
             cache: 'pip' # caching pip dependencies
         - run: pip install -r requirements.txt
         
-        - uses: actions/checkout@v5
         - name: Run Tests
           uses: joonvena/robotframework-docker-action@v1.0  
           with:
@@ -48,5 +48,8 @@ jobs:
             report_path: reports
             gh_access_token: ${{ secrets.GITHUB_TOKEN }}
 
-        - name: GitHub Pages v3
-          uses: peaceiris/actions-github-pages@v3.1.12
+        - name: Implantar Resultados no Github Pages
+          uses: peaceiris/actions-gh-pages@v4
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: "**/reports/"    

@@ -26,6 +26,7 @@ tests/
 ├── tests/
 │   ├── login_back.robot          # Test cases for backend (login)
 │   └── login_front.robot         # Test cases for frontend (login)
+│   └── __init__.robot            # Test Hooks Configurations 
 ├── .gitignore                    # File to ignore files in Git
 ├── base.resource                 # base global variables and configurations
 ├── README.md                     # This file
@@ -43,11 +44,10 @@ To run Backend tests:
 
 - `python -m robot -d reports tests/back/login_back.robot`
 
-To run using Tags between back and front: (login, valido, invalido)
+To run using Test Tags between back and front: (front,back)
 
-- `python -m robot -d reports -i login tests/`
-- `python -m robot -d reports -i valido tests/`
-- `python -m robot -d reports -i invalido tests/`
+- `python -m robot -d reports -i front tests/`
+- `python -m robot -d reports -i back tests/`
 
 
 To run All the tests:
