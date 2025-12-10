@@ -9,22 +9,12 @@ jobs:
     test:
         runs-on: ubuntu-latest
         steps:
-
-        - uses: actions/checkout@v5
-        - uses: actions/setup-python@v6
-          with:
-            python-version: '3.13'
-            cache: 'pip' # caching pip dependencies
-        - run: pip install -r requirements.txt
-
+        - uses: actions/checkout@v4
         - name: Run Tests
-          uses: joonvena/robotframework-docker-action@v1.0  
+          uses: joonvena/robotframework-docker-action@v1.0
           with:
-            browser: 'chrome'
-            robot_tests_dir: 'tests'
-            robot_reports_dir: 'reports'
-            robot_threads: 2
-
+            robot_tests_dir: tests
+          
         - name: Upload Test Report
           uses: actions/upload-artifact@v4
           if: always()
@@ -45,8 +35,10 @@ jobs:
         - name: Send report to commit
           uses: joonvena/robotframework-reporter-action@v2.5
           with:
-            report_path: reports
             gh_access_token: ${{ secrets.GITHUB_TOKEN }}
 
-        - name: GitHub Pages v3
-          uses: peaceiris/actions-github-pages@v3.1.12
+        - name: Implantar Resultados no Github Pages
+          uses: peaceiris/actions-gh-pages@v4
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: reports

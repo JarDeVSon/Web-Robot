@@ -1,6 +1,19 @@
-***Settings***
+*** Settings ***
+Library    SeleniumLibrary  timeout=20    implicit_wait=20
+Library    Collections
+Library    String
+Library    OperatingSystem
+Library    JSONLibrary
+Library    DateTime
+Library    Process
 
-Resource    ../tests/base.resource
+
+***Variables***
+${BROWSER}    headlesschrome
+${ENVIRONMENT_FRONT}  hom
+&{URL_LOGIN}    dev=urlDEV  hom=https://front.serverest.dev/login
+${USERNAME}    testefront@bol.com 
+${PASSWORD}    teste123
 
 *** Variables ***
 &{login_page_locators}=
@@ -11,7 +24,7 @@ Resource    ../tests/base.resource
 ***Keywords***
 
 Acesso a pagina de login
-    Open Browser  ${URL_LOGIN.${ENVIRONMENT}}  ${BROWSER}
+    Open Browser  ${URL_LOGIN.${ENVIRONMENT_FRONT}}  ${BROWSER}
     Maximize Browser Window
 
 Preencho formulario de login
@@ -31,5 +44,5 @@ Valido mensagem de erro
     Wait Until Page Contains    ${message}
 
 Fechar Navegador
-    Capture Page Screenshot  EMBED
+    Run Keyword IF Test Failed  Capture Page Screenshot  EMBED    
     Close Browser

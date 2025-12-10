@@ -1,5 +1,4 @@
-robotframework
-robotframework-jsonlibrary
+robotframework==6.0
 robotframework-jsonvalidator
 robotframework-requests
 robotframework-seleniumlibrary
