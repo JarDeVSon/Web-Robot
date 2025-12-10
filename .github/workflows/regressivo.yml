@@ -9,9 +9,9 @@ jobs:
     test:
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/checkout@v3
+        - uses: actions/checkout@v4
         - name: Run Tests
-          uses: joonvena/robotframework-docker-action@v1.1
+          uses: joonvena/robotframework-docker-action@v1.0
           with:
             browser: chrome
             robot_tests_dir:  tests
@@ -29,14 +29,14 @@ jobs:
       needs: [ test ]
       runs-on: ubuntu-latest
       steps:
-        - uses: actions/checkout@v3
+        - uses: actions/checkout@v4
         - name: Download reports
           uses: actions/download-artifact@v4
           with:
             name: reports
 
         - name: Send report to commit
-          uses: joonvena/robotframework-reporter-action@v2.5
+          uses: joonvena/robotframework-reporter-action@v2.1
           with:
             gh_access_token: ${{ secrets.GITHUB_TOKEN }}
 
