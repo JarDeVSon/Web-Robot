@@ -1,5 +1,5 @@
 *** Settings ***
-Library    SeleniumLibrary  timeout=20    implicit_wait=20    run_on_failure=Capture Page Screenshot    EMBED
+Library    SeleniumLibrary  timeout=20    implicit_wait=20
 Library    Collections
 Library    String
 Library    OperatingSystem
@@ -44,5 +44,5 @@ Valido mensagem de erro
     Wait Until Page Contains    ${message}
 
 Fechar Navegador
-    Capture Page Screenshot  EMBED
+    Run Keyword IF Test Failed  Capture Page Screenshot  EMBED    
     Close Browser
