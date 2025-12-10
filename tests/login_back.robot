@@ -1,6 +1,6 @@
 ***Settings***
 
-Resource    ../loginBack.resource
+Resource    loginBack.resource
 Test Tags    back
 
 Test Setup    Run Keywords

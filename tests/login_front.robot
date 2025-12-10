@@ -2,7 +2,7 @@ Language: Brazilian Portuguese
 
 ***Settings***
 
-Resource    ../loginPage.resource
+Resource    loginPage.resource
 
 Test Setup    Run Keywords
 ...   Acesso a pagina de login
