@@ -55,4 +55,4 @@ Validar status code
     [Arguments]    ${RESPONSE}    ${STATUS_CODE}
 
     Should Be Equal As Integers    ${RESPONSE}    ${STATUS_CODE}
-    RETURN    ${RESPONSE}
+    RETURN    ${RESPONSE}    ${STATUS_CODE}
