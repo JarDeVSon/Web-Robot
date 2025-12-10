@@ -11,7 +11,7 @@ jobs:
         steps:
         - uses: actions/checkout@v3
         - name: Run Tests
-          uses: joonvena/robotframework-docker-action@v1.0
+          uses: joonvena/robotframework-docker-action@v1.1
           with:
             browser: chrome
             robot_tests_dir:  tests
@@ -36,7 +36,7 @@ jobs:
             name: reports
 
         - name: Send report to commit
-          uses: joonvena/robotframework-reporter-action@v2
+          uses: joonvena/robotframework-reporter-action@v2.5
           with:
             gh_access_token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -44,4 +44,4 @@ jobs:
           uses: peaceiris/actions-gh-pages@v4
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: reports   
+            publish_dir: reports
