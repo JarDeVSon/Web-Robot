@@ -15,7 +15,7 @@ jobs:
           with:
             robot_tests_dir: tests
             robot_reports_dir: reports
-            robot_options: "--outputdir reports -xml reports/output.xml reports/log.html reports/report.html"
+            robot_options: "-x reports/output.xml"
 
           
         - name: Upload Test Report
