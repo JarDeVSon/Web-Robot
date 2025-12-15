@@ -12,11 +12,6 @@ jobs:
         - uses: actions/checkout@v4
         - name: Run Tests
           uses: joonvena/robotframework-docker-action@v1.0
-          with:
-            robot_tests_dir: tests
-            robot_reports_dir: reports
-            robot_options: "robot -x ./reports/output.xml -o ./reports/log.html"
-
           
         - name: Upload Test Report
           uses: actions/upload-artifact@v4
