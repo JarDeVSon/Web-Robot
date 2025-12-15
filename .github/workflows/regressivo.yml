@@ -14,6 +14,9 @@ jobs:
           uses: joonvena/robotframework-docker-action@v1.0
           with:
             robot_tests_dir: tests
+            robot_reports_dir: reports
+            robot_options: "--outputdir reports -xml reports/output.xml reports/log.html reports/report.html"
+
           
         - name: Upload Test Report
           uses: actions/upload-artifact@v4
@@ -33,7 +36,7 @@ jobs:
             name: reports
 
         - name: Send report to commit
-          uses: joonvena/robotframework-reporter-action@v2.2
+          uses: joonvena/robotframework-reporter-action@v2.2  
           with:
             gh_access_token: ${{ secrets.GITHUB_TOKEN }}
 
