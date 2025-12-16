@@ -13,6 +13,7 @@ jobs:
         - name: Run Tests
           uses: joonvena/robotframework-docker-action@v1.0
           with:
+            robot_runner_image: 'ppodgorsek/robotframework:6.1.0'
             robot_tests_dir: tests
           
         - name: Upload Test Report
