@@ -19,7 +19,7 @@ jobs:
           with:
             browser: chrome
             robot_tests_dir: tests
-            robot_reports_dir: reports
+            robot_reports_dir: "**/reports/"
 
 
         - name: Upload Test Execution Report
@@ -27,7 +27,7 @@ jobs:
           if: always()
           with:
             name: reports
-            path: reports
+            path: "**/reports/"
 
     generate_report:
       if: always()
@@ -43,4 +43,4 @@ jobs:
           uses: peaceiris/actions-gh-pages@v4
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: ./reports
+            publish_dir: "**/reports/"
