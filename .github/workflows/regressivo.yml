@@ -13,9 +13,16 @@ jobs:
         - name: Run Tests
           uses: joonvena/robotframework-docker-action@v1.0
           with:
+            browser: chrome
             robot_tests_dir: tests
-            robot_options: -x output.xml -x log.html
-          
+
+        - name: Upload Test Report
+          uses: actions/upload-artifact@v4
+          if: failure()
+          with:
+            name: reports
+            path: reports
+
         - name: Upload Test Report
           uses: actions/upload-artifact@v4
           if: always()
@@ -33,13 +40,13 @@ jobs:
           with:
             name: reports
 
-        - name: Send report to commit
-          uses: joonvena/robotframework-reporter-action@v2.2  
-          with:
-            gh_access_token: ${{ secrets.GITHUB_TOKEN }}
+        # - name: Send report to commit
+        #   uses: joonvena/robotframework-reporter-action@v2.2  
+        #   with:
+        #     gh_access_token: ${{ secrets.GITHUB_TOKEN }}
 
         - name: Implantar Resultados no Github Pages
           uses: peaceiris/actions-gh-pages@v4
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: reports
+            publish_dir: "**/reports/"
