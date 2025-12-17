@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.9 on linux)" generated="2025-12-17T13:37:12.749333" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="/opt/robotframework/tests">
+<suite id="s1-s1" name="Login Back" source="/opt/robotframework/tests/login_back.robot">
+<test id="s1-s1-t1" name="Cenário 1: Login com Credenciais Válidas" line="15">
+<kw name="Run Keywords" owner="BuiltIn" type="SETUP">
+<kw name="Inicializar Sessão API" owner="loginBack">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-12-17T13:37:12.840744" level="INFO">&amp;{headers} = { Content-Type=application/json }</msg>
+<var>&amp;{headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-12-17T13:37:12.840550" elapsed="0.000232"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-12-17T13:37:12.841570" level="INFO">Creating Session using : alias=api, url=https://serverest.dev, headers={'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api</arg>
+<arg>${URL_BACKEND.${ENVIRONMENT_BACK}}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=False</arg>
+<arg>disable_warnings=True</arg>
+<arg>max_retries=3</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-12-17T13:37:12.840897" elapsed="0.000855"/>
+</kw>
+<status status="PASS" start="2025-12-17T13:37:12.840305" elapsed="0.001521"/>
+</kw>
+<arg>Inicializar Sessão API</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-12-17T13:37:12.840063" elapsed="0.001802"/>
+</kw>
+<kw name="Realizar Login com Credenciais" owner="loginBack">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-12-17T13:37:12.842484" level="INFO">${BODY} = {'email': 'testeback@bol.com', 'password': 'teste123'}</msg>
+<var>${BODY}</var>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-12-17T13:37:12.842279" elapsed="0.000249"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-12-17T13:37:13.020944" level="INFO">POST Request : url=https://serverest.dev/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '54'} 
+ body=b'{"email": "testeback@bol.com", "password": "teste123"}' 
+ </msg>
+<msg time="2025-12-17T13:37:13.021056" level="INFO">POST Response : url=https://serverest.dev/login 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'c88222d182457aed4e761ca6d53b2ac1', 'date': 'Wed, 17 Dec 2025 13:37:13 GMT', 'server': 'Google Frontend', 'Content-Length': '275'} 
+ body={
+    "message": "Login realizado com sucesso",
+    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlYmFja0Bib2wuY29tIiwicGFzc3dvcmQiOiJ0ZXN0ZTEyMyIsImlhdCI6MTc2NTk3ODYzMywiZXhwIjoxNzY1OTc5MjMzfQ.N-aS8-BTY6tDmwGjgckkSGdB_tInmjmpu-Oc06wOyoQ"
+} 
+ </msg>
+<msg time="2025-12-17T13:37:13.021184" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<var>${RESPONSE}</var>
+<arg>alias=api</arg>
+<arg>url=/login</arg>
+<arg>json=${BODY}</arg>
+<arg>expected_status=ANY</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-12-17T13:37:12.842618" elapsed="0.178591"/>
+</kw>
+<return>
+<value>${RESPONSE}</value>
+<status status="PASS" start="2025-12-17T13:37:13.021282" elapsed="0.000056"/>
+</return>
+<msg time="2025-12-17T13:37:13.021481" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<var>${RESPONSE}</var>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<status status="PASS" start="2025-12-17T13:37:12.842011" elapsed="0.179510"/>
+</kw>
+<kw name="Validar status code" owner="loginBack">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-12-17T13:37:13.022393" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${RESPONSE}</arg>
+<arg>${STATUS_CODE}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-12-17T13:37:13.022245" elapsed="0.000205"/>
+</kw>
+<return>
+<value>${RESPONSE}</value>
+<value>${STATUS_CODE}</value>
+<status status="PASS" start="2025-12-17T13:37:13.022510" elapsed="0.000035"/>
+</return>
+<arg>${RESPONSE.status_code}</arg>
+<arg>200</arg>
+<status status="PASS" start="2025-12-17T13:37:13.021695" elapsed="0.000960"/>
+</kw>
+<kw name="Validar Login Bem-Sucedido" owner="loginBack">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPONSE}</arg>
+<arg>${CAMPO}</arg>
+<arg>${VALOR}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-12-17T13:37:13.023266" elapsed="0.000172"/>
+</kw>
+<return>
+<value>${RESPONSE}</value>
+<status status="PASS" start="2025-12-17T13:37:13.023481" elapsed="0.000040"/>
+</return>
+<arg>${RESPONSE.json()}</arg>
+<arg>message</arg>
+<arg>Login realizado com sucesso</arg>
+<status status="PASS" start="2025-12-17T13:37:13.022776" elapsed="0.000830"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Finalizar Sessão API" owner="loginBack">
+<kw name="Delete All Sessions" owner="RequestsLibrary">
+<msg time="2025-12-17T13:37:13.024177" level="INFO">Deleting All Sessions</msg>
+<doc>Removes all the session objects</doc>
+<status status="PASS" start="2025-12-17T13:37:13.024122" elapsed="0.000122"/>
+</kw>
+<status status="PASS" start="2025-12-17T13:37:13.023927" elapsed="0.000364"/>
+</kw>
+<arg>Finalizar Sessão API</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-12-17T13:37:13.023770" elapsed="0.000555"/>
+</kw>
+<tag>back</tag>
+<status status="PASS" start="2025-12-17T13:37:12.838869" elapsed="0.185492"/>
+</test>
+<test id="s1-s1-t2" name="Cenário 2: Login com Senha Inválida" line="21">
+<kw name="Run Keywords" owner="BuiltIn" type="SETUP">
+<kw name="Inicializar Sessão API" owner="loginBack">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-12-17T13:37:13.025642" level="INFO">&amp;{headers} = { Content-Type=application/json }</msg>
+<var>&amp;{headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-12-17T13:37:13.025437" elapsed="0.000231"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-12-17T13:37:13.026314" level="INFO">Creating Session using : alias=api, url=https://serverest.dev, headers={'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api</arg>
+<arg>${URL_BACKEND.${ENVIRONMENT_BACK}}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=False</arg>
+<arg>disable_warnings=True</arg>
+<arg>max_retries=3</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-12-17T13:37:13.025762" elapsed="0.000717"/>
+</kw>
+<status status="PASS" start="2025-12-17T13:37:13.025254" elapsed="0.001319"/>
+</kw>
+<arg>Inicializar Sessão API</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-12-17T13:37:13.025051" elapsed="0.001557"/>
+</kw>
+<kw name="Realizar Login com Credenciais" owner="loginBack">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-12-17T13:37:13.027172" level="INFO">${BODY} = {'email': 'testeback@bol.com', 'password': 'senha_incorreta'}</msg>
+<var>${BODY}</var>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-12-17T13:37:13.026967" elapsed="0.000228"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-12-17T13:37:13.257888" level="INFO">POST Request : url=https://serverest.dev/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '61'} 
+ body=b'{"email": "testeback@bol.com", "password": "senha_incorreta"}' 
+ </msg>
+<msg time="2025-12-17T13:37:13.257988" level="INFO">POST Response : url=https://serverest.dev/login 
+ status=401, reason=Unauthorized 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '7291eca9b55479c852e5f395fa3bef77', 'date': 'Wed, 17 Dec 2025 13:37:13 GMT', 'server': 'Google Frontend', 'Content-Length': '48'} 
+ body={
+    "message": "Email e/ou senha inválidos"
+} 
+ </msg>
+<msg time="2025-12-17T13:37:13.258138" level="INFO">${RESPONSE} = &lt;Response [401]&gt;</msg>
+<var>${RESPONSE}</var>
+<arg>alias=api</arg>
+<arg>url=/login</arg>
+<arg>json=${BODY}</arg>
+<arg>expected_status=ANY</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-12-17T13:37:13.027334" elapsed="0.230836"/>
+</kw>
+<return>
+<value>${RESPONSE}</value>
+<status status="PASS" start="2025-12-17T13:37:13.258264" elapsed="0.000039"/>
+</return>
+<msg time="2025-12-17T13:37:13.258425" level="INFO">${RESPONSE} = &lt;Response [401]&gt;</msg>
+<var>${RESPONSE}</var>
+<arg>testeback@bol.com</arg>
+<arg>senha_incorreta</arg>
+<status status="PASS" start="2025-12-17T13:37:13.026752" elapsed="0.231695"/>
+</kw>
+<kw name="Validar status code" owner="loginBack">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-12-17T13:37:13.259267" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${RESPONSE}</arg>
+<arg>${STATUS_CODE}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-12-17T13:37:13.259134" elapsed="0.000183"/>
+</kw>
+<return>
+<value>${RESPONSE}</value>
+<value>${STATUS_CODE}</value>
+<status status="PASS" start="2025-12-17T13:37:13.259356" elapsed="0.000023"/>
+</return>
+<arg>${RESPONSE.status_code}</arg>
+<arg>401</arg>
+<status status="PASS" start="2025-12-17T13:37:13.258622" elapsed="0.000855"/>
+</kw>
+<kw name="Validar Falha no Login" owner="loginBack">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPONSE}</arg>
+<arg>${CAMPO}</arg>
+<arg>${VALOR}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-12-17T13:37:13.260071" elapsed="0.000155"/>
+</kw>
+<return>
+<value>${RESPONSE}</value>
+<status status="PASS" start="2025-12-17T13:37:13.260267" elapsed="0.000022"/>
+</return>
+<arg>${RESPONSE.json()}</arg>
+<arg>message</arg>
+<arg>Email e/ou senha inválidos</arg>
+<status status="PASS" start="2025-12-17T13:37:13.259610" elapsed="0.000751"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Finalizar Sessão API" owner="loginBack">
+<kw name="Delete All Sessions" owner="RequestsLibrary">
+<msg time="2025-12-17T13:37:13.260896" level="INFO">Deleting All Sessions</msg>
+<doc>Removes all the session objects</doc>
+<status status="PASS" start="2025-12-17T13:37:13.260844" elapsed="0.000109"/>
+</kw>
+<status status="PASS" start="2025-12-17T13:37:13.260663" elapsed="0.000332"/>
+</kw>
+<arg>Finalizar Sessão API</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-12-17T13:37:13.260528" elapsed="0.000497"/>
+</kw>
+<tag>back</tag>
+<status status="PASS" start="2025-12-17T13:37:13.024655" elapsed="0.236403"/>
+</test>
+<test id="s1-s1-t3" name="Cenário 3: Login com Email Inexistente" line="27">
+<kw name="Run Keywords" owner="BuiltIn" type="SETUP">
+<kw name="Inicializar Sessão API" owner="loginBack">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-12-17T13:37:13.262347" level="INFO">&amp;{headers} = { Content-Type=application/json }</msg>
+<var>&amp;{headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-12-17T13:37:13.262133" elapsed="0.000245"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-12-17T13:37:13.263352" level="INFO">Creating Session using : alias=api, url=https://serverest.dev, headers={'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api</arg>
+<arg>${URL_BACKEND.${ENVIRONMENT_BACK}}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=False</arg>
+<arg>disable_warnings=True</arg>
+<arg>max_retries=3</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-12-17T13:37:13.262530" elapsed="0.000994"/>
+</kw>
+<status status="PASS" start="2025-12-17T13:37:13.261865" elapsed="0.001724"/>
+</kw>
+<arg>Inicializar Sessão API</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-12-17T13:37:13.261682" elapsed="0.001938"/>
+</kw>
+<kw name="Realizar Login com Credenciais" owner="loginBack">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-12-17T13:37:13.264153" level="INFO">${BODY} = {'email': 'email_inexistente@qa.com.br', 'password': 'qualquersenha'}</msg>
+<var>${BODY}</var>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-12-17T13:37:13.263953" elapsed="0.000221"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-12-17T13:37:13.439818" level="INFO">POST Request : url=https://serverest.dev/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '69'} 
+ body=b'{"email": "email_inexistente@qa.com.br", "password": "qualquersenha"}' 
+ </msg>
+<msg time="2025-12-17T13:37:13.439918" level="INFO">POST Response : url=https://serverest.dev/login 
+ status=401, reason=Unauthorized 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '5396bef905b8e168ecd98ab0bab725ef', 'date': 'Wed, 17 Dec 2025 13:37:13 GMT', 'server': 'Google Frontend', 'Content-Length': '48'} 
+ body={
+    "message": "Email e/ou senha inválidos"
+} 
+ </msg>
+<msg time="2025-12-17T13:37:13.440063" level="INFO">${RESPONSE} = &lt;Response [401]&gt;</msg>
+<var>${RESPONSE}</var>
+<arg>alias=api</arg>
+<arg>url=/login</arg>
+<arg>json=${BODY}</arg>
+<arg>expected_status=ANY</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-12-17T13:37:13.264259" elapsed="0.175834"/>
+</kw>
+<return>
+<value>${RESPONSE}</value>
+<status status="PASS" start="2025-12-17T13:37:13.440177" elapsed="0.000046"/>
+</return>
+<msg time="2025-12-17T13:37:13.440376" level="INFO">${RESPONSE} = &lt;Response [401]&gt;</msg>
+<var>${RESPONSE}</var>
+<arg>email_inexistente@qa.com.br</arg>
+<arg>qualquersenha</arg>
+<status status="PASS" start="2025-12-17T13:37:13.263743" elapsed="0.176660"/>
+</kw>
+<kw name="Validar status code" owner="loginBack">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-12-17T13:37:13.441398" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${RESPONSE}</arg>
+<arg>${STATUS_CODE}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-12-17T13:37:13.441271" elapsed="0.000242"/>
+</kw>
+<return>
+<value>${RESPONSE}</value>
+<value>${STATUS_CODE}</value>
+<status status="PASS" start="2025-12-17T13:37:13.441556" elapsed="0.000023"/>
+</return>
+<arg>${RESPONSE.status_code}</arg>
+<arg>401</arg>
+<status status="PASS" start="2025-12-17T13:37:13.440621" elapsed="0.001051"/>
+</kw>
+<kw name="Validar Falha no Login" owner="loginBack">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPONSE}</arg>
+<arg>${CAMPO}</arg>
+<arg>${VALOR}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-12-17T13:37:13.442221" elapsed="0.000155"/>
+</kw>
+<return>
+<value>${RESPONSE}</value>
+<status status="PASS" start="2025-12-17T13:37:13.442417" elapsed="0.000022"/>
+</return>
+<arg>${RESPONSE.json()}</arg>
+<arg>message</arg>
+<arg>Email e/ou senha inválidos</arg>
+<status status="PASS" start="2025-12-17T13:37:13.441777" elapsed="0.000751"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Finalizar Sessão API" owner="loginBack">
+<kw name="Delete All Sessions" owner="RequestsLibrary">
+<msg time="2025-12-17T13:37:13.443049" level="INFO">Deleting All Sessions</msg>
+<doc>Removes all the session objects</doc>
+<status status="PASS" start="2025-12-17T13:37:13.442994" elapsed="0.000107"/>
+</kw>
+<status status="PASS" start="2025-12-17T13:37:13.442812" elapsed="0.000330"/>
+</kw>
+<arg>Finalizar Sessão API</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-12-17T13:37:13.442673" elapsed="0.000502"/>
+</kw>
+<tag>back</tag>
+<status status="PASS" start="2025-12-17T13:37:13.261288" elapsed="0.181918"/>
+</test>
+<status status="PASS" start="2025-12-17T13:37:12.769442" elapsed="0.674231"/>
+</suite>
+<suite id="s1-s2" name="Login Front" source="/opt/robotframework/tests/login_front.robot">
+<test id="s1-s2-t1" name="Caso de Teste 1: Login com credenciais válidas" line="17">
+<kw name="Run Keywords" owner="BuiltIn" type="SETUP">
+<kw name="Acesso a pagina de login" owner="loginPage">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-12-17T13:37:13.545694" level="INFO">Opening browser 'headlesschrome' to base url 'https://front.serverest.dev/login'.</msg>
+<arg>${URL_LOGIN.${ENVIRONMENT_FRONT}}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-12-17T13:37:13.545192" elapsed="1.037488"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-12-17T13:37:14.582901" elapsed="0.032465"/>
+</kw>
+<status status="PASS" start="2025-12-17T13:37:13.544968" elapsed="1.070591"/>
+</kw>
+<arg>Acesso a pagina de login</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-12-17T13:37:13.544756" elapsed="1.070881"/>
+</kw>
+<kw name="Quando Preencho formulario de login" owner="loginPage">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-12-17T13:37:14.617414" level="INFO">Typing text 'testefront@bol.com' into text field 'css:#email'.</msg>
+<arg>${login_page_locators.email_field}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-17T13:37:14.616479" elapsed="0.106593"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-12-17T13:37:14.723872" level="INFO">Typing text 'teste123' into text field 'css:#password'.</msg>
+<arg>${login_page_locators.password_field}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-17T13:37:14.723281" elapsed="0.059545"/>
+</kw>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<status status="PASS" start="2025-12-17T13:37:14.615975" elapsed="0.167030"/>
+</kw>
+<kw name="E Clico no botao login" owner="loginPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-12-17T13:37:14.784127" level="INFO">Clicking element 'xpath://button[@data-testid="entrar"]'.</msg>
+<arg>${login_page_locators.login_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-17T13:37:14.783673" elapsed="0.104334"/>
+</kw>
+<status status="PASS" start="2025-12-17T13:37:14.783277" elapsed="0.104856"/>
+</kw>
+<kw name="Então Valido que estou logado" owner="loginPage">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${message}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-12-17T13:37:14.888701" elapsed="0.277344"/>
+</kw>
+<arg>Home</arg>
+<status status="PASS" start="2025-12-17T13:37:14.888337" elapsed="0.277832"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Fechar Navegador" owner="loginPage">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Capture Page Screenshot</arg>
+<arg>EMBED</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2025-12-17T13:37:15.166886" elapsed="0.000079"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-12-17T13:37:15.167070" elapsed="0.066384"/>
+</kw>
+<status status="PASS" start="2025-12-17T13:37:15.166654" elapsed="0.066933"/>
+</kw>
+<arg>Fechar Navegador</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-12-17T13:37:15.166415" elapsed="0.067233"/>
+</kw>
+<tag>front</tag>
+<status status="PASS" start="2025-12-17T13:37:13.543976" elapsed="1.689722"/>
+</test>
+<test id="s1-s2-t2" name="Caso de Teste 2: Login com credenciais inválidas" line="24">
+<kw name="Run Keywords" owner="BuiltIn" type="SETUP">
+<kw name="Acesso a pagina de login" owner="loginPage">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-12-17T13:37:15.235760" level="INFO">Opening browser 'headlesschrome' to base url 'https://front.serverest.dev/login'.</msg>
+<arg>${URL_LOGIN.${ENVIRONMENT_FRONT}}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-12-17T13:37:15.235054" elapsed="1.018783"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-12-17T13:37:16.254101" elapsed="0.032171"/>
+</kw>
+<status status="PASS" start="2025-12-17T13:37:15.234800" elapsed="1.051588"/>
+</kw>
+<arg>Acesso a pagina de login</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-12-17T13:37:15.234581" elapsed="1.051866"/>
+</kw>
+<kw name="Quando Preencho formulario de login" owner="loginPage">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-12-17T13:37:16.287557" level="INFO">Typing text 'usuario_invalido@email.com' into text field 'css:#email'.</msg>
+<arg>${login_page_locators.email_field}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-17T13:37:16.287059" elapsed="0.108918"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-12-17T13:37:16.396754" level="INFO">Typing text 'senha_invalida' into text field 'css:#password'.</msg>
+<arg>${login_page_locators.password_field}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-17T13:37:16.396200" elapsed="0.114843"/>
+</kw>
+<arg>usuario_invalido@email.com</arg>
+<arg>senha_invalida</arg>
+<status status="PASS" start="2025-12-17T13:37:16.286716" elapsed="0.224452"/>
+</kw>
+<kw name="E Clico no botao login" owner="loginPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-12-17T13:37:16.512102" level="INFO">Clicking element 'xpath://button[@data-testid="entrar"]'.</msg>
+<arg>${login_page_locators.login_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-17T13:37:16.511665" elapsed="0.055518"/>
+</kw>
+<status status="PASS" start="2025-12-17T13:37:16.511367" elapsed="0.055991"/>
+</kw>
+<kw name="Então Valido mensagem de erro" owner="loginPage">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${message}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-12-17T13:37:16.567889" elapsed="0.283157"/>
+</kw>
+<arg>Email e/ou senha inválidos</arg>
+<status status="PASS" start="2025-12-17T13:37:16.567582" elapsed="0.283583"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Fechar Navegador" owner="loginPage">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Capture Page Screenshot</arg>
+<arg>EMBED</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2025-12-17T13:37:16.851935" elapsed="0.000121"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-12-17T13:37:16.852210" elapsed="0.064171"/>
+</kw>
+<status status="PASS" start="2025-12-17T13:37:16.851646" elapsed="0.064862"/>
+</kw>
+<arg>Fechar Navegador</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-12-17T13:37:16.851406" elapsed="0.065166"/>
+</kw>
+<tag>front</tag>
+<status status="PASS" start="2025-12-17T13:37:15.234023" elapsed="1.682601"/>
+</test>
+<test id="s1-s2-t3" name="Caso de Teste 3: Campo email vazio" line="31">
+<kw name="Run Keywords" owner="BuiltIn" type="SETUP">
+<kw name="Acesso a pagina de login" owner="loginPage">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-12-17T13:37:16.918351" level="INFO">Opening browser 'headlesschrome' to base url 'https://front.serverest.dev/login'.</msg>
+<arg>${URL_LOGIN.${ENVIRONMENT_FRONT}}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-12-17T13:37:16.917864" elapsed="0.954577"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-12-17T13:37:17.872719" elapsed="0.031398"/>
+</kw>
+<status status="PASS" start="2025-12-17T13:37:16.917627" elapsed="0.986627"/>
+</kw>
+<arg>Acesso a pagina de login</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-12-17T13:37:16.917364" elapsed="0.986957"/>
+</kw>
+<kw name="Quando Preencho formulario de login" owner="loginPage">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-12-17T13:37:17.905689" level="INFO">Typing text '' into text field 'css:#email'.</msg>
+<arg>${login_page_locators.email_field}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-17T13:37:17.905216" elapsed="0.077203"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-12-17T13:37:17.983172" level="INFO">Typing text 'teste123' into text field 'css:#password'.</msg>
+<arg>${login_page_locators.password_field}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-17T13:37:17.982653" elapsed="0.065649"/>
+</kw>
+<arg>${EMPTY}</arg>
+<arg>${PASSWORD}</arg>
+<status status="PASS" start="2025-12-17T13:37:17.904617" elapsed="0.143811"/>
+</kw>
+<kw name="E Clico no botao login" owner="loginPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-12-17T13:37:18.049358" level="INFO">Clicking element 'xpath://button[@data-testid="entrar"]'.</msg>
+<arg>${login_page_locators.login_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-17T13:37:18.048921" elapsed="0.105956"/>
+</kw>
+<status status="PASS" start="2025-12-17T13:37:18.048653" elapsed="0.106349"/>
+</kw>
+<kw name="Então Valido mensagem de erro" owner="loginPage">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${message}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-12-17T13:37:18.155516" elapsed="0.174382"/>
+</kw>
+<arg>Email é obrigatório</arg>
+<status status="PASS" start="2025-12-17T13:37:18.155200" elapsed="0.174824"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Fechar Navegador" owner="loginPage">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Capture Page Screenshot</arg>
+<arg>EMBED</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2025-12-17T13:37:18.330822" elapsed="0.000085"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-12-17T13:37:18.331021" elapsed="0.065867"/>
+</kw>
+<status status="PASS" start="2025-12-17T13:37:18.330547" elapsed="0.066503"/>
+</kw>
+<arg>Fechar Navegador</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-12-17T13:37:18.330284" elapsed="0.066859"/>
+</kw>
+<tag>front</tag>
+<status status="PASS" start="2025-12-17T13:37:16.916913" elapsed="1.480311"/>
+</test>
+<status status="PASS" start="2025-12-17T13:37:13.444230" elapsed="4.953509"/>
+</suite>
+<status status="PASS" start="2025-12-17T13:37:12.750116" elapsed="5.648364"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="3" fail="0" skip="0">back</stat>
+<stat pass="3" fail="0" skip="0">front</stat>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="6" fail="0" skip="0">Tests</stat>
+<stat name="Login Back" id="s1-s1" pass="3" fail="0" skip="0">Tests.Login Back</stat>
+<stat name="Login Front" id="s1-s2" pass="3" fail="0" skip="0">Tests.Login Front</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-12-17T13:37:13.542576" level="ERROR">Error in file '/opt/robotframework/tests/loginPage.resource' on line 6: Importing library 'JSONLibrary' failed: ModuleNotFoundError: No module named 'JSONLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /usr/local/bin
+  /usr/lib64/python313.zip
+  /usr/lib64/python3.13
+  /usr/lib64/python3.13/lib-dynload
+  /usr/local/lib64/python3.13/site-packages
+  /usr/local/lib/python3.13/site-packages
+  /usr/lib64/python3.13/site-packages
+  /usr/lib/python3.13/site-packages</msg>
+</errors>
+</robot>
