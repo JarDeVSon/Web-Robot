@@ -19,7 +19,7 @@ jobs:
           with:
             browser: chrome
             robot_tests_dir: tests
-            robot_reports_dir: "**/reports/"
+            robot_reports_dir: reports
 
 
         - name: Upload Test Execution Report
