@@ -11,7 +11,7 @@ jobs:
         permissions:
           contents: write
 
-        name: Executar Testes Regressivos Robot Framework  
+        name: Executar Testes Regressivos no Robot Framework  
         steps:
         - uses: actions/checkout@v4
         - name: Run Tests On Docker Container
