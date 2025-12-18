@@ -20,28 +20,46 @@ ${PASSWORD}    teste123
 ...    password_field=css:#password
 ...    login_button=xpath://button[@data-testid="entrar"]
 
-***Keywords***
+*** Keywords ***
+
+Highlight Element
+    [Arguments]    ${locator}
+    Wait Until Element Is Visible    ${locator}    60s
+    ${element}=    Get WebElement    ${locator}
+    Execute JavaScript
+    ...    arguments[0].style.border='4px solid red';
+    ...    arguments[0].style.backgroundColor='yellow';
+    ...    ARGUMENTS    ${element}
 
 Acesso a pagina de login
+
     Open Browser  ${URL_LOGIN.${ENVIRONMENT_FRONT}}  ${BROWSER}
     Maximize Browser Window
 
 Preencho formulario de login
     [Arguments]    ${username}    ${password}
+            
     Input Text    ${login_page_locators.email_field}  ${username}
+    Highlight Element    ${login_page_locators.email_field}
     Input Text    ${login_page_locators.password_field}    ${password}
+    Highlight Element    ${login_page_locators.password_field}
+
 
 Clico no botao login
     Click Element    ${login_page_locators.login_button}
+    Highlight Element    ${login_page_locators.login_button}
 
 Valido que estou logado
     [Arguments]    ${message}
-    Wait Until Page Contains      ${message}
+    Wait Until Page Contains Element    locator=xpath://a[contains(text(),'${message}')]
+    Highlight Element    xpath://a[contains(text(),'${message}')]
+
 
 Valido mensagem de erro
     [Arguments]    ${message}
-    Wait Until Page Contains    ${message}
+    Wait Until Page Contains Element    locator=//*[contains(text(), '${message}')]
+    Highlight Element    xpath://*[contains(text(),'${message}')]
 
 Fechar Navegador
-    Run Keyword IF Test Failed  Capture Page Screenshot  EMBED    
+    Capture Page Screenshot  EMBED    
     Close Browser
