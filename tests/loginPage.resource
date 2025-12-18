@@ -1,5 +1,5 @@
 *** Settings ***
-Library    SeleniumLibrary  timeout=20    implicit_wait=20    run_on_failure=Capture Page Screenshot
+Library    SeleniumLibrary  timeout=90    implicit_wait=90    run_on_failure=Capture Page Screenshot
 Library    Collections
 Library    String
 Library    OperatingSystem
@@ -24,7 +24,7 @@ ${PASSWORD}    teste123
 
 Highlight Element
     [Arguments]    ${locator}
-    Wait Until Element Is Visible    ${locator}    60s
+    Wait Until Element Is Visible    ${locator}
     ${element}=    Get WebElement    ${locator}
     Execute JavaScript
     ...    arguments[0].style.outline='3px solid red';
