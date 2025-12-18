@@ -1,5 +1,5 @@
 *** Settings ***
-Library    SeleniumLibrary  timeout=20    implicit_wait=20
+Library    SeleniumLibrary  timeout=20    implicit_wait=20    run_on_failure=Capture Page Screenshot
 Library    Collections
 Library    String
 Library    OperatingSystem
@@ -27,8 +27,9 @@ Highlight Element
     Wait Until Element Is Visible    ${locator}    60s
     ${element}=    Get WebElement    ${locator}
     Execute JavaScript
-    ...    arguments[0].style.border='4px solid red';
-    ...    arguments[0].style.backgroundColor='yellow';
+    ...    arguments[0].style.outline='3px solid red';
+    ...    arguments[0].style.outlineOffset='2px';
+    ...    arguments[0].style.boxShadow='0 0 0 4px rgba(255,255,0,0.5)';
     ...    ARGUMENTS    ${element}
 
 Acesso a pagina de login
