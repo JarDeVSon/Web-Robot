@@ -17,35 +17,29 @@ Resource    ../tests/utils.resource
 
 Acesso a pagina de login
 
-    Open Browser  ${URL_LOGIN.${ENVIRONMENT_FRONT}}  ${BROWSER}
+    Open Browser  ${URL_LOGIN.${ENVIRONMENT_FRONT}}  ${BROWSER}    
     Maximize Browser Window
 
 Preencho formulario de login
     [Arguments]    ${username}    ${password}
             
-    Input Text    ${login_page_locators.email_field}  ${username}
-    Highlight Element    ${login_page_locators.email_field}
-    Input Text    ${login_page_locators.password_field}    ${password}
-    Highlight Element    ${login_page_locators.password_field}
-
+    Highlight Element And Input Text    ${login_page_locators.email_field}    ${username}
+    Highlight Element And Input Text    ${login_page_locators.password_field}    ${password}
 
 Clico no botao login
-    Click Element    ${login_page_locators.login_button}
-    Highlight Element    ${login_page_locators.login_button}
-    
+
+    Highlight Element And Click    ${login_page_locators.login_button}
 
 Valido que estou logado
     [Arguments]    ${message}
 
-    Wait Until Page Contains Element    locator=//h1[contains(text(),'${message}')]
-    Highlight Element    locator=//h1[contains(text(),'${message}')]
+    Highlight Element And Wait Until Page Contains Element    //h1[contains(text(),'${message}')]    ${message}
 
 Valido mensagem de erro
     [Arguments]    ${message}
 
-    Wait Until Page Contains Element    locator=//*[contains(text(), '${message}')]
-    Highlight Element    locator=//*[contains(text(), '${message}')]
-
+    Highlight Element And Wait Until Page Contains Element    //*[contains(text(), '${message}')]    ${message}
+    
 Fechar Navegador
     Capture Page Screenshot  EMBED    
     Close Browser
