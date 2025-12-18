@@ -51,8 +51,8 @@ Clico no botao login
 
 Valido que estou logado
     [Arguments]    ${message}
-    Wait Until Page Contains Element    locator=xpath://a[contains(text(),'${message}')]
-    Highlight Element    xpath://a[contains(text(),'${message}')]
+    Wait Until Page Contains Element    locator=xpath://h1[contains(text(),'${message}')]
+    Highlight Element    xpath://h1[contains(text(),'${message}')]
 
 
 Valido mensagem de erro
