@@ -1,10 +1,4 @@
 *** Settings ***
-Library    SeleniumLibrary  timeout=90    implicit_wait=90    run_on_failure=Capture Page Screenshot
-Library    Collections
-Library    String
-Library    OperatingSystem
-Library    DateTime
-Library    Process
 Resource    ../tests/utils.resource
 
 *** Variables ***
@@ -18,7 +12,7 @@ Resource    ../tests/utils.resource
 Acesso a pagina de login
 
     Open Browser  ${URL_LOGIN.${ENVIRONMENT_FRONT}}  ${BROWSER}    
-    Maximize Browser Window
+    Set Window Size    1920    1080
 
 Preencho formulario de login
     [Arguments]    ${username}    ${password}

@@ -14,7 +14,7 @@ Test Teardown    Run Keywords
 
 Cenário 1: Login com Credenciais Válidas
 
-    ${RESPONSE}    Realizar Login com Credenciais    ${USERNAME}  ${PASSWORD}
+    ${RESPONSE}    Realizar Login com Credenciais    ${USERNAME_BACK}  ${PASSWORD_BACK}
     Validar status code  ${RESPONSE.status_code}    200
     Validar Login Bem-Sucedido    ${RESPONSE.json()}    message    Login realizado com sucesso
 
