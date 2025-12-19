@@ -15,7 +15,6 @@ ${PASSWORD}    teste123
 
 *** Keywords ***
 
-
 Highlight Element And Input Text
     [Arguments]    ${locator}    ${text}
     Wait Until Element Is Visible    ${locator}
