@@ -10,8 +10,7 @@ ${ENVIRONMENT_FRONT}  hom
 ${USERNAME_FRONT}    testefront@bol.com 
 ${PASSWORD_FRONT}    teste123
 
-***Variables***
-
+########################################################################
 ${USERNAME_BACK}    testeback@bol.com 
 ${PASSWORD_BACK}    teste123
 &{URL_BACKEND}     dev=urlDEV  hom=https://serverest.dev
