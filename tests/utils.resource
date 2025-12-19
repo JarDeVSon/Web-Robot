@@ -1,13 +1,21 @@
 *** Settings ***
 Library    SeleniumLibrary  timeout=20    implicit_wait=20    page_load_timeout=20    run_on_failure=Capture Page Screenshot
-
+Library    RequestsLibrary
+Library    Collections
 
 ***Variables***
 ${BROWSER}    headlesschrome
 ${ENVIRONMENT_FRONT}  hom
 &{URL_LOGIN}    dev=urlDEV  hom=https://front.serverest.dev/login
-${USERNAME}    testefront@bol.com 
-${PASSWORD}    teste123
+${USERNAME_FRONT}    testefront@bol.com 
+${PASSWORD_FRONT}    teste123
+
+***Variables***
+
+${USERNAME_BACK}    testeback@bol.com 
+${PASSWORD_BACK}    teste123
+&{URL_BACKEND}     dev=urlDEV  hom=https://serverest.dev
+${ENVIRONMENT_BACK}  hom
 
 *** Keywords ***
 
