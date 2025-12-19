@@ -38,8 +38,8 @@ Valido que estou logado
 Valido mensagem de erro
     [Arguments]    ${message}
 
-    Highlight Element And Wait Until Page Contains Element    //*[contains(text(), '${message}')]    ${message}
-    
+    Highlight Element And Wait Until Page Contains Element    //*[contains(text(), '${message}') and contains(@class, '.alert.alert-secondary.alert-dismissible')]    ${message}
+
 Fechar Navegador
     Capture Page Screenshot  EMBED    
     Close Browser
