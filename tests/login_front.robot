@@ -30,6 +30,6 @@ Caso de Teste 2: Login com credenciais inválidas
 
 Caso de Teste 3: Campo email vazio
 
-    Quando Preencho formulario de login    ${EMPTY}    ${PASSWORD}
+    Quando Preencho formulario de login    ${EMPTY}    ${PASSWORD_FRONT}
     E Clico no botao login
     Então Valido mensagem de erro    Email é obrigatório  
