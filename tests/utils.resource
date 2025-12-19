@@ -1,10 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary  timeout=20    implicit_wait=20    page_load_timeout=20    run_on_failure=Capture Page Screenshot
-Library    Collections
-Library    String
-Library    OperatingSystem
-Library    DateTime
-Library    Process
+
 
 ***Variables***
 ${BROWSER}    headlesschrome
