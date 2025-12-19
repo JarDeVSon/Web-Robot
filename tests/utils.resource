@@ -38,7 +38,7 @@ Highlight Element And Click
     ...    arguments[0].style.outlineOffset='2px';
     ...    arguments[0].style.boxShadow='0 0 0 4px rgba(255,255,0,0.5)';
     ...    ARGUMENTS    ${element}
-    Click Element    ${locator}    
+    Click Element    ${locator}
 
 Highlight Element And Wait Until Page Contains Element
     [Arguments]    ${locator}    ${text}
