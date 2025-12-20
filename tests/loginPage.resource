@@ -20,7 +20,7 @@ Preencho formulario de login
     Highlight Element And Input Text    ${login_page_locators.email_field}    ${username}
     Highlight Element And Input Text    ${login_page_locators.password_field}    ${password}
 
-Clico no botao login
+Clico em login
 
     Highlight Element And Click    ${login_page_locators.login_button}
 
