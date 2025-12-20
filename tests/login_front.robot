@@ -17,19 +17,19 @@ Test Tags    front
 Caso de Teste 1: Login com credenciais válidas
 
     Quando Preencho formulario de login    ${USERNAME_FRONT}    ${PASSWORD_FRONT}
-    E Clico no botao login
+    E Clico em login
     Então Valido que estou logado    Home
 
 
 Caso de Teste 2: Login com credenciais inválidas
 
     Quando Preencho formulario de login    usuario_invalido@email.com    senha_invalida
-    E Clico no botao login
+    E Clico em login
     Então Valido mensagem de erro    Email e/ou senha inválidos
     
 
 Caso de Teste 3: Campo email vazio
 
     Quando Preencho formulario de login    ${EMPTY}    ${PASSWORD_FRONT}
-    E Clico no botao login
+    E Clico em login
     Então Valido mensagem de erro    Email é obrigatório  
