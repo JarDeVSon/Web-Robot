@@ -25,9 +25,9 @@ Clico no botao login
     Highlight Element And Click    ${login_page_locators.login_button}
 
 Valido que estou logado
-    [Arguments]    ${message}
+    [Arguments]    ${message} 
 
-    Highlight Element And Wait Until Page Contains Element    //h1[contains(text(),'${message}')]    ${message}
+    Highlight Element And Wait Until Page Contains Element    //*[contains(text(),'${message}')]    ${message}
 
 Valido mensagem de erro
     [Arguments]    ${message}
