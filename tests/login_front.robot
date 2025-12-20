@@ -18,7 +18,7 @@ Caso de Teste 1: Login com credenciais válidas
 
     Quando Preencho formulario de login    ${USERNAME_FRONT}    ${PASSWORD_FRONT}
     E Clico no botao login
-    Então Valido que estou logado    Bem Vindo
+    Então Valido que estou logado    Home
 
 
 Caso de Teste 2: Login com credenciais inválidas
